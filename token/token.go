@@ -21,8 +21,10 @@ const (
 	SLASH    = "/"
 	ASTERISK = "*"
 
-	LT = "<"
-	GT = ">"
+	LT     = "<"
+	GT     = ">"
+	EQ     = "=="
+	NOT_EQ = "!="
 
 	COMMA     = ","
 	SEMICOLON = ";"
