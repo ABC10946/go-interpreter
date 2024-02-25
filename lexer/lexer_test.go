@@ -2,9 +2,9 @@ package lexer
 
 import (
 	"testing"
+
 	"github.com/ABC10946/go-interpreter/token"
 )
-
 
 func TestNextToken(t *testing.T) {
 	input := `let five = 5;
@@ -14,9 +14,11 @@ let add = fn(x, y) {
 };
 
 let result = add(five, ten);
+!-/*5;
+5 < 10 > 5;
 `
 	tests := []struct {
-		expectedType token.TokenType
+		expectedType    token.TokenType
 		expectedLiteral string
 	}{
 		{token.LET, "let"},
@@ -55,6 +57,18 @@ let result = add(five, ten);
 		{token.IDENT, "ten"},
 		{token.RPAREN, ")"},
 		{token.SEMICOLON, ";"},
+		{token.BANG, "!"},
+		{token.MINUS, "-"},
+		{token.SLASH, "/"},
+		{token.ASTERISK, "*"},
+		{token.INT, "5"},
+		{token.SEMICOLON, ";"},
+		{token.INT, "5"},
+		{token.LT, "<"},
+		{token.INT, "10"},
+		{token.GT, ">"},
+		{token.INT, "5"},
+		{token.SEMICOLON, ";"},
 		{token.EOF, ""},
 	}
 
@@ -71,5 +85,5 @@ let result = add(five, ten);
 			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q", i, tt.expectedLiteral, tok.Literal)
 		}
 	}
-	
+
 }
