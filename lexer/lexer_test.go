@@ -38,7 +38,7 @@ let result = add(five, ten);
 		{token.COMMA, ","},
 		{token.IDENT, "y"},
 		{token.RPAREN, ")"},
-		{token.RBRACE, "{"},
+		{token.LBRACE, "{"},
 		{token.IDENT, "x"},
 		{token.PLUS, "+"},
 		{token.IDENT, "y"},
